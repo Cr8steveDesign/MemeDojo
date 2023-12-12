@@ -1,6 +1,6 @@
 // Homepage Component Housing the Home Screen App After Sign In
 import HomeContent from "./components/HomeContent";
-import Header from "./components/Header";
+import MobileHeader from "./components/MobileHeader";
 import Footer from "./components/Footer";
 
 const HomePage = () => {
@@ -8,7 +8,7 @@ const HomePage = () => {
     <>
       <div className="bg-slate-400 w-full h-full overflow-hidden">
         {/* Header Component */}
-        <Header />
+        <MobileHeader />
 
         {/* HomeScreen Content */}
         <HomeContent />
