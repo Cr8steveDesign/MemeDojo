@@ -30,7 +30,7 @@ const Post = ({ profilePic, userName, text, postId }) => {
             </div>
           </div>
           <img
-            src="../../public/delete.png"
+            src="/delete.png"
             alt="delete post"
             title="Delete this post!"
             className="h-1/2 cursor-pointer"
@@ -42,23 +42,23 @@ const Post = ({ profilePic, userName, text, postId }) => {
         </div>
         {/* Image container */}
         <div>
-          <img src="../../public/profile.jpeg" alt="MemePosted by Username" />
+          <img src="/profile.jpeg" alt="MemePosted by Username" />
         </div>
         {/* Post Reaction and Reply */}
         <div className="h-20  w-full bg-slate-200 p-3 overflow-x-hidden flex justify-between items-center overflow-hidden ">
           <div className="h-full flex gap-3 items-center">
             <img
               className="max-h-full cursor-pointer"
-              src={
-                like ? "../../public/like-active.png" : "../../public/like.png"
-              }
+              src={like ? "/like-active.png" : "/like.png"}
               alt="Like Post"
               onClick={handleLike}
             />
-            <p className=" text-lg font-semibold">0 Likes</p>
+            <p className=" text-lg font-semibold">
+              {like ? "1 Like" : "0 Likes"}{" "}
+            </p>
           </div>
           <img
-            src="../../public/comment.gif"
+            src="comment.gif"
             alt="Comment on Post"
             className="mix-blend-multiply cursor-pointer"
           />

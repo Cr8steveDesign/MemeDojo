@@ -1,6 +1,6 @@
 //The Signin Component
 
-//import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const SignIn = () => {
   return (
@@ -10,7 +10,7 @@ const SignIn = () => {
         className=" flex flex-col p-5 justify-center items-center mx-auto text-center"
       >
         <h1 className=" text-5xl font-black mb-1 cursor-pointer text-indigo-800 ">
-          MemeDojo
+          🥷 MemeDojo 🫣
         </h1>
         <p className=" text-base ">Sign In to see Hilarious Memes from</p>
         <p className="mb-4">your friends and the world!</p>
@@ -40,13 +40,15 @@ const SignIn = () => {
           <input
             className="p-5 mb-1 mt-3 w-full rounded-md bg-indigo-800 uppercase font-extrabold text-xl text-white hover:bg-indigo-600 cursor-pointer transition ease-in-out duration-500"
             type="button"
-            value="Sign Up!"
+            value="Sign in 🤪🤪"
           />
         </form>
       </div>
       <hr className=" h-0.5 mx-auto w-full bg-slate-500 mb-3" />
       <div id="container002" className="text-center text-lg font-semibold ">
-        <p>You norva get account?? Oya Sign Up</p>
+        <Link to="/signup">
+          <p>You norva get account?? Oya Sign Up</p>
+        </Link>
       </div>
     </div>
   );

@@ -13,7 +13,7 @@ const HomeContent = () => {
     <>
       <div
         role="content-container"
-        className="w-full h-full overflow-scroll scroll no-scrollbar"
+        className="w-full h-full overflow-scroll scroll p-2 no-scrollbar"
       >
         {/* The Content Container Component goes here */}
         {postArray.map((post, indx) => (
