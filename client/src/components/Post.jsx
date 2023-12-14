@@ -7,7 +7,7 @@
 import { useState } from "react";
 
 // eslint-disable-next-line react/prop-types
-const Post = ({ profilePic, userName, text, postId }) => {
+const Post = ({ picture, userName, text, postId, userPicture }) => {
   //Post Id to be used to delete post and retrieve comments and likes
   const [like, setLike] = useState(false);
 
@@ -22,7 +22,7 @@ const Post = ({ profilePic, userName, text, postId }) => {
         <div className="h-20  w-full  overflow-x-hidden flex justify-between items-center overflow-hidden ">
           {" "}
           <div className="h-full w-full flex  item-center gap-3 mb-2">
-            <img className="h-full" src={profilePic} alt="Profil Picture" />
+            <img className="h-full" src={userPicture} alt="Profil Picture" />
             <div className="flex flex-col justify-center">
               <p className="text-2xl font-semibold text-indigo-900 cursor-pointer">
                 {userName}
@@ -42,7 +42,7 @@ const Post = ({ profilePic, userName, text, postId }) => {
         </div>
         {/* Image container */}
         <div>
-          <img src="/profile.jpeg" alt="MemePosted by Username" />
+          <img src={picture} alt="MemePosted by Username" />
         </div>
         {/* Post Reaction and Reply */}
         <div className="h-20  w-full bg-slate-200 p-3 overflow-x-hidden flex justify-between items-center overflow-hidden ">

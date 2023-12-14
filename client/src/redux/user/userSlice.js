@@ -14,41 +14,16 @@ const userSlice = createSlice({
   name: "user",
   initialState,
   reducers: {
-    signInStart: (state) => {
-      state.loading = true;
-    },
     signInSuccess: (state, action) => {
       state.currentUser = action.payload;
-      state.loading = false;
-      state.error = false;
-    },
-    signInFailure: (state, action) => {
-      state.loading = false;
-      state.error = action.payload;
-    },
-    updateUserStart: (state) => {
-      state.loading = true;
     },
     updateUserSuccess: (state, action) => {
       state.currentUser = action.payload;
-      state.loading = false;
-      state.error = false;
-    },
-    updateUserFailure: (state, action) => {
-      state.loading = false;
-      state.error = action.payload;
-    },
-    deleteUserStart: (state) => {
-      state.loading = true;
     },
     deleteUserSuccess: (state) => {
       state.currentUser = null;
       state.loading = false;
       state.error = false;
-    },
-    deleteUserFailure: (state, action) => {
-      state.loading = false;
-      state.error = action.payload;
     },
     signOut: (state) => {
       state.currentUser = null;
@@ -59,18 +34,8 @@ const userSlice = createSlice({
 });
 
 // Export the actions created by the createSlice, as you'll be using it for dispatch
-export const {
-  signInStart,
-  signInSuccess,
-  signInFailure,
-  updateUserFailure,
-  updateUserStart,
-  updateUserSuccess,
-  deleteUserFailure,
-  deleteUserStart,
-  deleteUserSuccess,
-  signOut,
-} = userSlice.actions;
+export const { signInSuccess, updateUserSuccess, deleteUserSuccess, signOut } =
+  userSlice.actions;
 
 //export the reducer functions as the default from this file
 // You can import it as the userReducer for use when combining

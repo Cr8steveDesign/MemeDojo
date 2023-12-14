@@ -8,19 +8,20 @@ const signUp = async (req, res, next) => {
   const { username, email, password } = req.body;
   const hashedPassword = bcryptjs.hashSync(password, 10);
 
-  const newUser = new User({ username, email, password: hashedPassword });
-
   //Save the new user to the database asynchronously
   try {
+    const newUser = new User({ username, email, password: hashedPassword });
     await newUser.save();
-    res.status(201).json({ message: "User Successfully created!" });
-
+    res
+      .status(201)
+      .json({ status: 201, message: "User Successfully created!" });
     //catch errors
   } catch (error) {
-    res.status(403).json({
+    res.status(400).json({
+      status: 400,
       success: false,
       message:
-        "Error Creating a New User. Username or Email may already exist. Please Try again.",
+        "Error Creating a New User. Username or Email may already exist.",
     });
     next();
   }
@@ -36,15 +37,17 @@ const signIn = async (req, res, next) => {
     const validUser = await User.findOne({ email });
 
     if (!validUser) {
-      return res.status(404).json({ message: "User not Found!" });
+      return res
+        .status(404)
+        .json({ status: 404, message: "Invalid Credentials. Try again." });
     }
     //Compare the returned user password if not null to the password given in req.body
     const validPassword = bcryptjs.compareSync(password, validUser.password);
 
     if (!validPassword) {
       return res
-        .status(401)
-        .json({ message: "Invalid Credentials. Try again" });
+        .status(404)
+        .json({ status: 404, message: "Invalid Credentials. Try again" });
     }
 
     // At this point the valid user is assumed to be correct with its password
@@ -66,7 +69,7 @@ const signIn = async (req, res, next) => {
     res
       .cookie("user_token", token, { httpOnly: true, expires: expiryDate })
       .status(200)
-      .json(userData);
+      .json({ status: 200, data: userData });
   } catch (error) {
     next(error);
   }

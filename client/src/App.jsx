@@ -12,9 +12,11 @@ function App() {
     <BrowserRouter>
       <div className="w-screen h-screen bg-slate-50 flex justify-center items-start">
         <Routes>
-          <Route element={<PrivateRoutes />}>
-            <Route path="/" element={<HomePage />} />
-            <Route path="/profile" element={<Profile />} />
+          <Route path="/">
+            <Route element={<PrivateRoutes />}>
+              <Route path="/" element={<HomePage />} />
+              <Route path="/profile" element={<Profile />} />
+            </Route>
           </Route>
           <Route path="/signin" element={<SignIn />} />
           <Route path="/signup" element={<SignUp />} />
